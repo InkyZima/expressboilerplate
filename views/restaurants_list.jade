@@ -1,0 +1,10 @@
+
+h3 Restaurants list:
+table#restaurants_list(style="border:solid 1px")
+	th
+		tr 
+			td Restaurant name
+	tbody
+		tr
+			td(v-for="res in restaurants") {{res}}
+

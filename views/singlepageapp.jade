@@ -1,0 +1,37 @@
+doctype html
+html
+	head
+		title= title
+		//include headinclude
+		script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js")
+		script(src="https://d1l4stvdmqmdzl.cloudfront.net/3.9.6/mongoose.js")
+		script(src="https://unpkg.com/vue@2.4.3/dist/vue.js")
+		script(src="https://unpkg.com/vee-validate@2.0.0-rc.7/dist/vee-validate.js")
+		script(src="/javascripts/vee-validate-locale-de.js")
+		script(src="/javascripts/singlepageapp.js")
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Raleway:400,300,600')
+		link(rel='stylesheet', href='/stylesheets/normalize.css')
+		link(rel='stylesheet', href='/stylesheets/skeleton-inky.css')
+		link(rel='stylesheet', href='/stylesheets/singlepageapp.css')
+		//script(src="/javascripts/skeleton-inky.js")
+
+
+	body
+		#menu(style="position:fixed; border:solid 1px;")
+			ul
+				li(v-for="page in pages"): a(href="#" v-bind:id="page.menuid" v-on:click="toggle") {{page.title}}
+		#container.container
+			#header
+				.twelve.columns
+					h1(style="text-align:center; margin:3.5rem 0rem; letter-spacing:0rem;") App name
+			#stickynav
+			#main
+				//TODO i could do this a mixins or something
+				#init(title="Starting page"): include init
+				#firstpage.hidden(title="First page"): include firstpage
+				#secondpage.hidden(title="Second page"): include secondpage
+			//hr
+			#footer
+		
+		
