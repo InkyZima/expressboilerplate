@@ -37,7 +37,7 @@ $(function () {
 				return temp;
 				})(),
 			test : false,
-			currentlyactivesub : "init"
+			currentlyactivesub : $("#main").children(".visible")[0].id
 		}
 	}); // v.main
 
@@ -87,7 +87,7 @@ $(function () {
 	/** ajax server communication constructors **/
 	// constructor for form-handling vue objects
 	InputFormVueObject = function (vueel, ajaxposturl, successfunct) {
-	newvueobj = new Vue({
+	var newvueobj = new Vue({
 		el : vueel,
 		data : {
 			submitted : false,
@@ -101,7 +101,7 @@ $(function () {
 						$(e.target).ajaxSubmit({
 							url:ajaxposturl,
 							method:"POST",
-							error : (err) => c(err.status + " : " + err.statusText),
+							error : (err) => c(err.status + " (" + err.statusText + "): " + err.responseText),
 							success:  successfunct
 						});
 					}
@@ -111,6 +111,7 @@ $(function () {
 	}); // vue object
 	return newvueobj;
 	} // function
+	
 
 }); // jquery init
 

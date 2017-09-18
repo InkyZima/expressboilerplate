@@ -58,10 +58,23 @@ app.post("/restaurants/create", (req, res, next) => {
 	res.render("restaurants_list");
 });
 
-app.all("/formdata" ,(req,res,next) => {
-	c(req.body)
-	res.send("server:done");
+// encapsulation to save route-relevant data
+(function () {
+	const template = {restaurantname: val.isEmail, doesdelivery: val.isBoolean};
+	app.post("/formdata" ,(req,res,next) => {
+		c(req.body)
+		// here should arrive only form submits. template shuold actually be drawn automatically.. from the jade view.
+		// if the names of the input fields get changed, they have to be changed here too...
+		validate(template,req.body).then(
+		() => {
+			// knex("people").insert(req.body).then(null,(err) => {c(err); res.status(500); res.send("db insert failed.")})
+			res.send("validation passed");
+		},
+			(err) => {c(err); res.status(400); res.send(err)}
+		);
+		
 });
+})();
 
 /** mogoose model example **/
 // Use the SomeModel object (model) to find all SomeModel records
@@ -84,5 +97,24 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+/** helper functions **/
+
+function validate(template, obj) {
+	return new Promise ((res,rej) => {
+		var tkeys = Object.getOwnPropertyNames(template);
+		var okeys = Object.getOwnPropertyNames(obj);
+
+		if (tkeys.length != okeys.length) rej("validated object has a different amount of properties than expected");
+
+		for (var i = 0; i < tkeys.length; i++) {
+			if (okeys.indexOf(tkeys[i]) < 0) rej("validated object has differently named properties than expected");
+			if (!template[tkeys[i]](obj[tkeys[i]])) rej("validated object failed type validation for property: " + tkeys[i]);
+		}
+
+		res(true);		
+	}); // promise
+} // function
+
 
 module.exports = app;

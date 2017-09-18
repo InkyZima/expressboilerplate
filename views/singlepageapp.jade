@@ -9,6 +9,7 @@ html
 		script(src="https://unpkg.com/vue@2.4.3/dist/vue.js")
 		script(src="https://unpkg.com/vee-validate@2.0.0-rc.7/dist/vee-validate.js")
 		script(src="/javascripts/vee-validate-locale-de.js")
+		//script(src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js")
 		script(src="/javascripts/singlepageapp.js")
 		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Raleway:400,300,600')
 		link(rel='stylesheet', href='/stylesheets/normalize.css')
@@ -28,9 +29,9 @@ html
 			#stickynav
 			#main
 				//TODO i could do this a mixins or something
-				#init(title="Starting page"): include init
-				#firstpage.hidden(title="First page"): include firstpage
-				#secondpage.hidden(title="Second page"): include secondpage
+				#init.hidden(title="Starting page"): include init
+				#createpage.visible(title="First page"): include createpage
+				#listpage.hidden(title="Second page"): include listpage
 			//hr
 			#footer
 		

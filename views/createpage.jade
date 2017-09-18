@@ -1,0 +1,20 @@
+
+script(src="/javascripts/createpage.js")
+
+#createpage_content
+	p this is the first page
+
+	form#firstform(v-on:submit.prevent="formsend")
+		div
+			label(for="restaurantname" v-if="uiverbosity === 1") Restaurant Name:
+			input(type="text" name="restaurantname" v-validate="'required|email'" placeholder="Restaurant Name")
+			.help.is-danger(v-show="submitted && errors.has('restaurantname')") {{ errors.first('restaurantname') }}
+		div
+			label(for="doesdelivery" v-if="uiverbosity === 1") Does the restaurant deliver:
+			label(for="true") Yes 
+				input(type="radio" name="doesdelivery" value="true" v-validate="'required'")
+			label(for="false") No 
+				input(type="radio" name="doesdelivery" value="false" v-validate="'required'")
+			.help.is-danger(v-show="submitted && errors.has('doesdelivery')") {{ errors.first('doesdelivery') }}
+		
+		input(type="submit" name="submit")
