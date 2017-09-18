@@ -5,6 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var val = require("validator");
+var knex = require('knex')({
+  dialect: 'sqlite3',
+  connection: {
+    filename: './main.db'
+  }
+});
 
 const c = console.log;
 const ct = console.trace;
@@ -65,15 +71,23 @@ app.post("/restaurants/create", (req, res, next) => {
 		c(req.body)
 		// here should arrive only form submits. template shuold actually be drawn automatically.. from the jade view.
 		// if the names of the input fields get changed, they have to be changed here too...
-		validate(template,req.body).then(
+		validate(template,req.body)
+		.then(
+		// push to db
 		() => {
 			// knex("people").insert(req.body).then(null,(err) => {c(err); res.status(500); res.send("db insert failed.")})
 			res.send("validation passed");
+			return knex("formdata").insert(req.body);
 		},
+			// validation problem
 			(err) => {c(err); res.status(400); res.send(err)}
-		);
-		
-});
+		)
+		.then(
+		// sql insert successfull
+		(res) => {res.send("success")} , 
+		// sql insert problem
+		(err) => {res.status(400); res.send(err)});	
+	});
 })();
 
 /** mogoose model example **/
