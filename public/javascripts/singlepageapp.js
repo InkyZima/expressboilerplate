@@ -94,14 +94,17 @@ $(function () {
 			uiverbosity : v.uiverbosity
 		},
 		methods : {
-			formsend : function (e) {this.submitted = true;
+			formsubmit : function (e) {this.submitted = true;
 				this.$validator.validateAll().then((res) => { 
 					if (res){
 						c(e.target);
 						$(e.target).ajaxSubmit({
 							url:ajaxposturl,
 							method:"POST",
-							error : (err) => c(err.status + " (" + err.statusText + "): " + err.responseText),
+							error : (err) => {
+								c(err.status + " (" + err.statusText + "): " + err.responseText);
+								alert(err.status + " (" + err.statusText + "): " + err.responseText);
+							},
 							success:  successfunct
 						});
 					}

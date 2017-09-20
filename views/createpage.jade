@@ -4,10 +4,10 @@ script(src="/javascripts/createpage.js")
 #createpage_content
 	p this is the first page
 
-	form#firstform(v-on:submit.prevent="formsend")
+	form#firstform(v-on:submit.prevent="formsubmit")
 		div
 			label(for="restaurantname" v-if="uiverbosity === 1") Restaurant Name:
-			input(type="text" name="restaurantname" v-validate="'required|email'" placeholder="Restaurant Name")
+			input(type="text" name="restaurantname" v-validate="'required'" placeholder="Restaurant Name")
 			.help.is-danger(v-show="submitted && errors.has('restaurantname')") {{ errors.first('restaurantname') }}
 		div
 			label(for="doesdelivery" v-if="uiverbosity === 1") Does the restaurant deliver:
