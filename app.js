@@ -63,6 +63,16 @@ app.get('/', function(req, res, next) {
 app.get('/singlepageapp', function(req, res, next) {
 	res.render("singlepageapp");
 });
+setTimeout(() => {
+		c("THIS IS TREASON")
+	c(schemas.named)
+	c(JSON.stringify(schemas.named))
+	
+},1000);
+app.get('/schemas', function(req, res, next) {
+
+	res.send(schemas.named);
+});
 
 app.post("/restaurants/create", (req, res, next) => {
 	res.cookie("testcookie","testcookie value");
@@ -72,7 +82,7 @@ app.post("/restaurants/create", (req, res, next) => {
 app.post("/formdata" ,(req,res,next) => {
 	// here should arrive only form submits. template should actually be drawn automatically.. from the jade view.
 	// if the names of the input fields get changed, they have to be changed here too...
-	validate(schemas.formdata,req.body)
+	validate(schemas.named.formdata,req.body)
 	.catch(throwerr)
 	.then(() => { // push to db
 		return knex("formdata").insert(req.body);
@@ -119,7 +129,7 @@ function validate(template, obj) {
 
 		for (var i = 0; i < tkeys.length; i++) {
 			if (okeys.indexOf(tkeys[i]) < 0) rej("validated object has differently named properties than expected");
-			if (!template[tkeys[i]](obj[tkeys[i]])) rej("validated object failed type validation for property: " + tkeys[i]);
+			if (!val[template[tkeys[i]]](obj[tkeys[i]])) {c("SHITSFUCKEDUP");rej("validated object failed type validation for property: " + tkeys[i]);}
 		}
 
 		res("validate return value");		

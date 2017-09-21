@@ -12,11 +12,26 @@ Vue.use(VeeValidate ,{
 
 // global vue obj
 var v = {};
+
+// init schemas colletion object
+var schemas = {};
 // init ajax server communication constructors
 var InputFormVueObject;
 
 $(function () {
-	
+	// get validation schemas
+	$.ajax({
+		url : "/schemas",
+		method : "GET",
+		dataType:"json",
+		error : (err) => {
+			c(err.status + " (" + err.statusText + "): " + err.responseText);
+			alert(err.status + " (" + err.statusText + "): " + err.responseText);
+		},
+		success:  (data) => {
+			schemas = data;
+		}
+	});
 	
 	// global vue object
 	v = new Vue({
