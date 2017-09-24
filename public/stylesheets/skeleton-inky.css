@@ -33,7 +33,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
@@ -465,14 +465,11 @@ a.aspecial {
 /* header, nav
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.header > .container {
+.header {
 	border-bottom:1px solid;
 }
-.nav > .container {
-	border-bottom:1px solid;	
-}
-
 .nav {
+	border-bottom:1px solid;
 	position:sticky;
     top:0px;
 	z-index:100;
@@ -531,6 +528,19 @@ a.aspecial {
 	max-height:80%;
 	overflow:auto;
 }
+
+/* hamburger meu */
+.bar1, .bar2, .bar3 {
+    width: 3rem;
+    height: 0.4rem;
+    background-color: #333;
+    margin: 0.3rem 0.5rem;
+}
+
+@media (max-width: 1465px) { 
+.menu {display:none}
+}
+
 
 /* debugging
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

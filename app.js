@@ -1,18 +1,25 @@
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require("express-session");
 var bodyParser = require('body-parser');
-// table and schema (for queryies and validations) definitions
+// TODO necessary in this file? table and schema (for queryies and validations) definitions
 var schemas = require("./models/schemas");
+var inkyauth = require("./inkyauth");
+// TODO val necessary in this file?
 var val = require("validator");
+// TODO knex necessary in this file?
 var knex = require('knex')({
   dialect: 'sqlite3',
   connection: {
     filename: './main.db'
   }
 });
+// auth stuff
+// var passport = require('passport');
 
 /** inky utils**/
 const c = console.log;
@@ -42,10 +49,14 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+// ! static before session means no cookie creation for static requests
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: 'the ink in inky' }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 /** routes go here **/
 app.get('/', function(req, res, next) {
@@ -63,16 +74,9 @@ app.get('/', function(req, res, next) {
 app.get('/singlepageapp', function(req, res, next) {
 	res.render("singlepageapp");
 });
-setTimeout(() => {
-		c("THIS IS TREASON")
-	c(schemas.named)
-	c(JSON.stringify(schemas.named))
-	
-},1000);
-app.get('/schemas', function(req, res, next) {
 
-	res.send(schemas.named);
-});
+// TODO this is nice, but no client side useage/implementation yet. maybe ditch vee for something simlier?
+// app.get('/schemas', function(req, res, next) {res.send(schemas);});
 
 app.post("/restaurants/create", (req, res, next) => {
 	res.cookie("testcookie","testcookie value");
@@ -82,7 +86,7 @@ app.post("/restaurants/create", (req, res, next) => {
 app.post("/formdata" ,(req,res,next) => {
 	// here should arrive only form submits. template should actually be drawn automatically.. from the jade view.
 	// if the names of the input fields get changed, they have to be changed here too...
-	validate(schemas.named.formdata,req.body)
+	validate(schemas.formdata,req.body)
 	.catch(throwerr)
 	.then(() => { // push to db
 		return knex("formdata").insert(req.body);
@@ -93,6 +97,13 @@ app.post("/formdata" ,(req,res,next) => {
 	// finally pass any error to express error handler
 	.catch((err) => next(err));
 });
+
+app.post('/login', (req, res, next) => {
+		inkyauth.authuser(req.body.username, req.body.password).then( (authresult) => {
+			res.send("success");	 
+		}, (err) => {next(err)}); // authuser with then
+	} // middleware
+);
 
 
 /** mogoose model example **/
@@ -119,7 +130,7 @@ app.use(function(err, req, res, next) {
 });
 
 /** helper functions **/
-
+// TODO maybe move this function to schemas.js ?
 function validate(template, obj) {
 	return new Promise ((res,rej) => {
 		var tkeys = Object.getOwnPropertyNames(template);
@@ -129,7 +140,7 @@ function validate(template, obj) {
 
 		for (var i = 0; i < tkeys.length; i++) {
 			if (okeys.indexOf(tkeys[i]) < 0) rej("validated object has differently named properties than expected");
-			if (!val[template[tkeys[i]]](obj[tkeys[i]])) {c("SHITSFUCKEDUP");rej("validated object failed type validation for property: " + tkeys[i]);}
+			if (!val[template[tkeys[i]]](obj[tkeys[i]])) rej("validated object failed type validation for property: " + tkeys[i]);
 		}
 
 		res("validate return value");		

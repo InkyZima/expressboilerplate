@@ -4,6 +4,7 @@ html
 		title= title
 		//include headinclude
 		script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+		script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js")
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js")
 		script(src="https://d1l4stvdmqmdzl.cloudfront.net/3.9.6/mongoose.js")
 		script(src="https://unpkg.com/vue@2.4.3/dist/vue.js")
@@ -19,18 +20,46 @@ html
 
 
 	body
-		#menu(style="position:fixed; border:solid 1px;")
+		#menu.menu(style="position:fixed; padding-right:0.5rem")
+			form#loginform(v-on:submit.prevent="formsubmit")
+				div
+					label Username:
+					input(type="text" name="username")
+				div
+					label Password:
+					input(type="password" name="password")
+				div
+					input(type="submit" value="Login")
+			hr
 			ul
 				li(v-for="page in pages"): a(href="#" v-bind:id="page.menuid" v-on:click="toggle") {{page.title}}
 		#container.container
-			#header
+			#header.header.row
 				.twelve.columns
 					h1(style="text-align:center; margin:3.5rem 0rem; letter-spacing:0rem;") App name
-			#stickynav
+			#stickynav.nav
+				.row
+					.one.column.nav-top#hamburger
+						.bar1
+						.bar2
+						.bar3
+						
+					.two.columns.nav-top
+						a(href="#") Menu
+					.two.columns.nav-top
+						a(href="#") Menu
+					.two.columns.nav-top
+						a(href="#") Menu
+					.two.columns.nav-top
+						a(href="#") Menu
+					.two.columns.nav-top
+						a(href="#") Menu
+					.one.column.nav-top
+				.row
 			#main
 				//TODO i could do this a mixins or something
-				#init.hidden(title="Starting page"): include init
-				#createpage.visible(title="First page"): include createpage
+				#init.visible(title="Starting page"): include init
+				#createpage.hidden(title="First page"): include createpage
 				#listpage.hidden(title="Second page"): include listpage
 			//hr
 			#footer

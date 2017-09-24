@@ -1,7 +1,7 @@
 
-var vfirstform = {};
+
 $(function() {
-	vfirstform = InputFormVueObject("#firstform","/formdata", (response) => {c("server says everything's fine " + response)});
+	InputFormVueObject("#firstform","/formdata", (response) => {c("server says everything's fine " + response)});
 	
 	/*
 	new Vue({

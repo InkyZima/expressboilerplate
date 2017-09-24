@@ -20,3 +20,4 @@ function inkyct(tablename, schema) {
 
 // knex.dropTableIfExists("formdata").then(() =>
 inkyct("formdata", schemas.formdata).then(() => knex.destroy(() => console.log("closing after creation"))) // )
+inkyct("users", schemas.users).then(() => knex.destroy(() => console.log("closing after creation"))) // )

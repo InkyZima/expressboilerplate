@@ -15,7 +15,11 @@
     "serve-favicon": "~2.4.2",
 	"mongoose":"*",
 	"validator": "*",
-	"knex":"*"
+	"knex":"*",
+	"express-session": "*",
+	"passport":"*",
+	"passport-local":"*",
+	"bcrypt":"*"
   },  
   "devDependencies": {
     "nodemon": "^1.12.0"

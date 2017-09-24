@@ -19,19 +19,34 @@ var schemas = {};
 var InputFormVueObject;
 
 $(function () {
+	
+	// #menu positioning
+	
+	positionmenu();
+	$("#hamburger").css("z-index","auto");
+	$("#hamburger").on("click", () => {$("#menu").toggle(); if(window.innerWidth > 1465) {positionmenu();}});
+	$(window).resize(() => {
+		if (window.innerWidth > 1465) positionmenu();
+	});
+
+	
 	// get validation schemas
+	// unused for now
+	/*
 	$.ajax({
 		url : "/schemas",
 		method : "GET",
 		dataType:"json",
 		error : (err) => {
-			c(err.status + " (" + err.statusText + "): " + err.responseText);
-			alert(err.status + " (" + err.statusText + "): " + err.responseText);
+			let errtext = "schemas: " + err.status + " (" + err.statusText + "): " + err.responseText;
+			c(errtext);
+			alert(errtext);
 		},
 		success:  (data) => {
 			schemas = data;
 		}
 	});
+	*/
 	
 	// global vue object
 	v = new Vue({
@@ -117,8 +132,9 @@ $(function () {
 							url:ajaxposturl,
 							method:"POST",
 							error : (err) => {
-								c(err.status + " (" + err.statusText + "): " + err.responseText);
-								alert(err.status + " (" + err.statusText + "): " + err.responseText);
+								let errtext = ajaxposturl + ": " + err.status + " (" + err.statusText + "): " + err.responseText;
+								c(errtext);
+								alert(errtext);
 							},
 							success:  successfunct
 						});
@@ -130,6 +146,14 @@ $(function () {
 	return newvueobj;
 	} // function
 	
-
+	/** helper functions**/
+	
+	function positionmenu() {
+		$("#menu").position({
+			of:"#stickynav",
+			at: "left-135px top",
+			my:"top"
+		});
+	}
 }); // jquery init
 
