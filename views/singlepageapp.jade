@@ -21,15 +21,20 @@ html
 
 	body
 		#menu.menu(style="position:fixed; padding-right:0.5rem")
-			form#loginform(v-on:submit.prevent="formsubmit")
+			form#loginform( v-if="!loggedin" v-on:submit.prevent="loginsubmit")
 				div
 					label Username:
-					input(type="text" name="username")
+					input(type="text" name="username" v-validate="'required'")
 				div
 					label Password:
-					input(type="password" name="password")
+					input(type="password" name="password" v-validate="'required'")
 				div
-					input(type="submit" value="Login")
+					input.button.button-primary(type="submit" value="Login")
+			div(v-else)
+				p(style="font-weight:bold") Logged in as 
+					br
+					{{loggedin_as}}
+				button#logout.button.button-primary(v-on:click="logoutsubmit") Logout
 			hr
 			ul
 				li(v-for="page in pages"): a(href="#" v-bind:id="page.menuid" v-on:click="toggle") {{page.title}}
@@ -60,6 +65,7 @@ html
 				//TODO i could do this a mixins or something
 				#init.visible(title="Starting page"): include init
 				#createpage.hidden(title="First page"): include createpage
-				#listpage.hidden(title="Second page"): include listpage
+				#secretpage.hidden(title="Secret Page"): include secretpage
+
 			//hr
 			#footer

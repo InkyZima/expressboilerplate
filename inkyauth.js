@@ -8,6 +8,9 @@ generate password hash: bcrypt.hashSync(password, bcrypt.genSaltSync(), null);
 
 generate session token and cookie handle it
 */
+
+const schemas = require("./models/schemas");
+
 var knex = require('knex')({
   dialect: 'sqlite3',
   connection: {
@@ -44,26 +47,28 @@ function authuser (username, password) { c("welcome to inkyauth.authuser");
 	}); // promise
 }
 
-function createuser (username, password) {
+function createuser (username, password) { 
 	return new Promise((res,rej) => 
 	{
-		knex.select().from("users").where("username",username).then( 
-			(rows) => { 
-				if (!rows[0]) {
+		// test if arguments are valid
+		if (!username || !password) {rej("username or password empty \n"); throw "";}
+		knex("users").select().where("username",username).then( 
+			(rows) => {
+				if (!rows[0]) { 
 					// user doesnt exist. lets create one
 					// unless the pw is weak
-					if (!strongpassword(password)) rej("password too weak");
-										
-					knex("users").insert({
-						"username" : username,
-						"password" : bcrypt.hashSync(password, bcrypt.genSaltSync(), null)
-					}).then( (insertres) => res("usercreation successfull.") , (err) => c("knex broke on insert statement" + err));
+					if (!strongpassword(password)) {rej("password too weak"); throw "";}
+					c("after strognpassword check")
+					var newuser = schemas.user();
+					newuser.username = username;
+					newuser.password = 	bcrypt.hashSync(password, bcrypt.genSaltSync(), null);	
+					knex("users").insert(newuser).then( (insertres) => res("usercreation successfull.") , (err) => rej("knex broke on insert statement" + err));
 				} // user creation logic
-				else { // username found in db. die.
+				else { // username found in db. die. 
 					rej("username alrdy exists");
 				} // else (username exists)
 			},
-			(err) => {rej(err);}
+			(err) => rej(err)
 		); // sql error on executing select statement
 	}); // promise
 }
@@ -71,7 +76,7 @@ function createuser (username, password) {
 /** helpers **/
 function strongpassword(password) { // unhashed password
 	// TODO check if password is weak
-	if (password.length < 6) return false;
+	if (password.length < 5) return false;
 	else return true;
 }
 

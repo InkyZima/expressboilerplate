@@ -1,4 +1,8 @@
+/*
+TODO user rolles
+html tables
 
+*/
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,10 +11,13 @@ var cookieParser = require('cookie-parser');
 var session = require("express-session");
 var bodyParser = require('body-parser');
 // TODO necessary in this file? table and schema (for queryies and validations) definitions
-var schemas = require("./models/schemas");
+var models = require("./models/models");
 var inkyauth = require("./inkyauth");
 // TODO val necessary in this file?
 var val = require("validator");
+const KnexSessionStore = require('connect-session-knex')(session);
+const sessionstore = new KnexSessionStore(/* options here */); // defaults to a sqlite3 database
+
 // TODO knex necessary in this file?
 var knex = require('knex')({
   dialect: 'sqlite3',
@@ -25,6 +32,7 @@ var knex = require('knex')({
 const c = console.log;
 const ct = console.trace;
 const throwerr = (err) => {throw err;};
+
 
 // var index = require('./routes/index');
 // var users = require('./routes/users');
@@ -53,8 +61,16 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(session({ secret: 'the ink in inky' }));
+// app.use(cookieParser());
+const sessionopts = {
+	cookieName: 'session',
+	secret: 'the_ink_in_inky',
+	duration: 30 * 60 * 1000,
+	activeDuration: 5 * 60 * 1000,
+	store : sessionstore,
+	cookie : {httpOnly : false} // TODO why is this needed for normal http get requests?
+};
+app.use(session(sessionopts));
 // app.use(passport.initialize());
 // app.use(passport.session());
 
@@ -72,21 +88,26 @@ app.get('/', function(req, res, next) {
 });
 
 app.get('/singlepageapp', function(req, res, next) {
-	res.render("singlepageapp");
+	c("retriving name information from cookie: " + req.session.name);
+	if (!req.session.user) res.render("singlepageapp");
+	else res.render("singlepageapp", {user:req.session.user});
+		// c(res.get("set-cookie"))
+
 });
 
 // TODO this is nice, but no client side useage/implementation yet. maybe ditch vee for something simlier?
-// app.get('/schemas', function(req, res, next) {res.send(schemas);});
+// app.get('/models', function(req, res, next) {res.send(models);});
 
 app.post("/restaurants/create", (req, res, next) => {
 	res.cookie("testcookie","testcookie value");
 	res.render("restaurants_list");
 });
 
+
 app.post("/formdata" ,(req,res,next) => {
 	// here should arrive only form submits. template should actually be drawn automatically.. from the jade view.
 	// if the names of the input fields get changed, they have to be changed here too...
-	validate(schemas.formdata,req.body)
+	validate(models.formdata,req.body)
 	.catch(throwerr)
 	.then(() => { // push to db
 		return knex("formdata").insert(req.body);
@@ -97,14 +118,42 @@ app.post("/formdata" ,(req,res,next) => {
 	// finally pass any error to express error handler
 	.catch((err) => next(err));
 });
-
+/*
+check if session cookie got sent. if yes: return error: already logged in
+*/
 app.post('/login', (req, res, next) => {
-		inkyauth.authuser(req.body.username, req.body.password).then( (authresult) => {
-			res.send("success");	 
-		}, (err) => {next(err)}); // authuser with then
-	} // middleware
+		if (req.session && req.session.user) {next("already logged in");}
+		else {
+			inkyauth.authuser(req.body.username, req.body.password).then( (authresult) => {
+				req.session.user = req.body.username;	
+				c(req.session);
+				res.send({user: req.session.user});	 
+			}, (err) => {next(err)}); 
+		}
+	} // route
 );
 
+// for the client to check if logged in per ajax call. if true: return user. else next->error
+app.get("/checklogin", checklogin, (req,res,next) => {
+	res.send({user:req.session.user});
+});
+
+app.all("/logout", (req,res,next) => {
+	req.session.destroy();
+	res.send("logout success!");
+});
+
+// this page requires login.
+app.get("/secretpage", checklogin , (req,res,next) => {
+	res.send({user : req.session.user , data :"this data comes from the ajax callback to /secretpage"});
+});
+
+app.post('/createuser', (req, res, next) => {
+		inkyauth.createuser(req.body.username, req.body.password).then( (authresult) => {
+			res.send("success");	 
+		}, (err) => {next(err)}); // authuser with then
+	} // route
+);
 
 /** mogoose model example **/
 // Use the SomeModel object (model) to find all SomeModel records
@@ -130,7 +179,7 @@ app.use(function(err, req, res, next) {
 });
 
 /** helper functions **/
-// TODO maybe move this function to schemas.js ?
+// TODO maybe move this function to models.js ?
 function validate(template, obj) {
 	return new Promise ((res,rej) => {
 		var tkeys = Object.getOwnPropertyNames(template);
@@ -147,12 +196,12 @@ function validate(template, obj) {
 	}); // promise
 } // function
 
-function insertintodb (req,res,next) {
 
-	
-	
+/** custom middleware **/
+function checklogin (req,res,next) {	
+	if (req.session.user) next();
+	else next("checklogin failed: not logged in");
 }
-
 
 module.exports = app;
 

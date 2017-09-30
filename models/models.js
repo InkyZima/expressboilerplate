@@ -48,8 +48,8 @@ module.exports = {
 };
 
 // TODO
-function empty(model) {
-	var res = model;
+function empty(schema) {
+	var res = schema;
 	for (let i in res) {
 		res[i] = "";
 	}

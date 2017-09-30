@@ -19,7 +19,8 @@
 	"express-session": "*",
 	"passport":"*",
 	"passport-local":"*",
-	"bcrypt":"*"
+	"bcrypt":"*",
+	"connect-session-knex" : "*"
   },  
   "devDependencies": {
     "nodemon": "^1.12.0"
