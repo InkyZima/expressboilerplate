@@ -1,0 +1,1033 @@
+doctype html
+// saved from url=(0051)http://getbootstrap.com/docs/4.0/components/navbar/
+html(lang='en')
+	head
+		meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title Navbar · Bootstrap
+		// Bootstrap core CSS
+		style.anchorjs.
+		link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+		// Documentation extras
+		link(href='stylesheets/docsearch.min.css', rel='stylesheet')
+		link(href='stylesheets/docs.min.css', rel='stylesheet')
+		// Favicons
+		link(rel='apple-touch-icon', href='http://getbootstrap.com/assets/img/favicons/apple-touch-icon.png', sizes='180x180')
+		link(rel='icon', href='http://getbootstrap.com/assets/img/favicons/favicon-32x32.png', sizes='32x32', type='image/png')
+		link(rel='icon', href='http://getbootstrap.com/assets/img/favicons/favicon-16x16.png', sizes='16x16', type='image/png')
+		link(rel='manifest', href='http://getbootstrap.com/assets/img/favicons/manifest.json')
+		link(rel='mask-icon', href='http://getbootstrap.com/assets/img/favicons/safari-pinned-tab.svg', color='#563d7c')
+		link(rel='icon', href='http://getbootstrap.com/favicon.ico')
+		meta(name='msapplication-config', content='/assets/img/favicons/browserconfig.xml')
+		meta(name='theme-color', content='#563d7c')
+		// Meta
+		meta(name='description', content='The most popular HTML, CSS, and JS library in the world.')
+		meta(name='author', content='Mark Otto, Jacob Thornton, and Bootstrap contributors')
+		// Twitter
+		meta(name='twitter:site', content='@getbootstrap')
+		meta(name='twitter:creator', content='@getbootstrap')
+		meta(name='twitter:card', content='summary')
+		meta(name='twitter:title', content='Navbar')
+		meta(name='twitter:description', content="Documentation and examples for Bootstrap's powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse plugin.")
+		meta(name='twitter:image', content='https://getbootstrap.com/assets/brand/bootstrap-social-logo.png')
+		// Facebook
+		meta(property='og:url', content='https://getbootstrap.com/docs/4.0/components/navbar/')
+		meta(property='og:title', content='Navbar')
+		meta(property='og:description', content="Documentation and examples for Bootstrap's powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse plugin.")
+		meta(property='og:type', content='website')
+		meta(property='og:image', content='http://getbootstrap.com/assets/brand/bootstrap-social.png')
+		meta(property='og:image:secure_url', content='https://getbootstrap.com/assets/brand/bootstrap-social.png')
+		meta(property='og:image:type', content='image/png')
+		meta(property='og:image:width', content='1200')
+		meta(property='og:image:height', content='630')
+		script(async='', src='./Navbar · Bootstrap_files/analytics.js.Download')
+		script.
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-146052-10', 'getbootstrap.com');
+			ga('send', 'pageview');
+		script#_carbonads_projs(type='text/javascript', src='http://srv.carbonads.net/ads/C6AILKT.json?segment=placement:getbootstrapcom&callback=_carbonads_go')
+	body
+		a#skippy.sr-only.sr-only-focusable(href='http://getbootstrap.com/docs/4.0/components/navbar/#content')
+			.container
+				span.skiplink-text Skip to main content
+		header.navbar.navbar-expand.navbar-dark.flex-column.flex-md-row.bd-navbar
+			a.navbar-brand.mr-0.mr-md-2(href='http://getbootstrap.com/', aria-label='Bootstrap')
+				svg.d-block(width='36', height='36', viewbox='0 0 612 612', xmlns='http://www.w3.org/2000/svg', focusable='false')
+					title Bootstrap
+					path(fill='currentColor', d='M510 8a94.3 94.3 0 0 1 94 94v408a94.3 94.3 0 0 1-94 94H102a94.3 94.3 0 0 1-94-94V102a94.3 94.3 0 0 1 94-94h408m0-8H102C45.9 0 0 45.9 0 102v408c0 56.1 45.9 102 102 102h408c56.1 0 102-45.9 102-102V102C612 45.9 566.1 0 510 0z')
+					path(fill='currentColor', d='M196.77 471.5V154.43h124.15c54.27 0 91 31.64 91 79.1 0 33-24.17 63.72-54.71 69.21v1.76c43.07 5.49 70.75 35.82 70.75 78 0 55.81-40 89-107.45 89zm39.55-180.4h63.28c46.8 0 72.29-18.68 72.29-53 0-31.42-21.53-48.78-60-48.78h-75.57zm78.22 145.46c47.68 0 72.73-19.34 72.73-56s-25.93-55.37-76.46-55.37h-74.49v111.4z')
+			.navbar-nav-scroll
+				ul.navbar-nav.bd-navbar-nav.flex-row
+					li.nav-item
+						a.nav-link(href='http://getbootstrap.com/', onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');") Home
+					li.nav-item
+						a.nav-link.active(href='http://getbootstrap.com/docs/4.0/getting-started/introduction/', onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');") Documentation
+					li.nav-item
+						a.nav-link(href='http://getbootstrap.com/docs/4.0/examples/', onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');") Examples
+					li.nav-item
+						a.nav-link(href='https://themes.getbootstrap.com/', onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');", target='_blank', rel='noopener') Themes
+					li.nav-item
+						a.nav-link(href='https://jobs.getbootstrap.com/', onclick="ga('send', 'event', 'Navbar', 'Community links', 'Jobs');", target='_blank', rel='noopener') Jobs
+					li.nav-item
+						a.nav-link(href='https://expo.getbootstrap.com/', onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');", target='_blank', rel='noopener') Expo
+					li.nav-item
+						a.nav-link(href='https://blog.getbootstrap.com/', onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');", target='_blank', rel='noopener') Blog
+			ul.navbar-nav.flex-row.ml-md-auto.d-none.d-md-flex
+				li.nav-item.dropdown
+					a#bd-versions.nav-item.nav-link.dropdown-toggle.mr-md-2(href='http://getbootstrap.com/docs/4.0/components/navbar/#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+						| v4.0
+					.dropdown-menu.dropdown-menu-right(aria-labelledby='bd-versions')
+						a.dropdown-item.active(href='http://getbootstrap.com/docs/4.0/') Latest (4.x)
+						a.dropdown-item(href='https://v4-alpha.getbootstrap.com/') v4 Alpha 6
+						a.dropdown-item(href='https://getbootstrap.com/docs/3.3/') v3.3.7
+						a.dropdown-item(href='https://getbootstrap.com/2.3.2/') v2.3.2
+				li.nav-item
+					a.nav-link.p-2(href='https://github.com/twbs/bootstrap', target='_blank', rel='noopener', aria-label='GitHub')
+						svg.navbar-nav-svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 512 499.36', focusable='false')
+							title GitHub
+							path(d='M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z', fill='currentColor', fill-rule='evenodd')
+				li.nav-item
+					a.nav-link.p-2(href='https://twitter.com/getbootstrap', target='_blank', rel='noopener', aria-label='Twitter')
+						svg.navbar-nav-svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 512 416.32', focusable='false')
+							title Twitter
+							path(d='M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92', fill='currentColor')
+				li.nav-item
+					a.nav-link.p-2(href='https://bootstrap-slack.herokuapp.com/', target='_blank', rel='noopener', aria-label='Slack')
+						svg.navbar-nav-svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 512 512', focusable='false')
+							title Slack
+							path(fill='currentColor', d='M210.787 234.832l68.31-22.883 22.1 65.977-68.309 22.882z')
+							path(d='M490.54 185.6C437.7 9.59 361.6-31.34 185.6 21.46S-31.3 150.4 21.46 326.4 150.4 543.3 326.4 490.54 543.34 361.6 490.54 185.6zM401.7 299.8l-33.15 11.05 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.38-68.36 22.92 11.46 34.38c4.5 13.92-2.87 29.06-16.78 33.56-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18l-11.46-34.43-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.5-13.92 2.87-29.06 16.78-33.56l33.12-11.03-22.1-65.9-33.15 11.05c-2.87.82-6.14 1.64-9 1.23a27.32 27.32 0 0 1-24.56-18c-4.48-13.93 2.89-29.07 16.81-33.58l33.15-11.05-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.46 34.38 68.36-22.92-11.46-34.38c-4.5-13.92 2.87-29.06 16.78-33.56s29.06 2.87 33.56 16.78l11.47 34.42 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.87 29.06-16.78 33.56L329.7 194.6l22.1 65.9 33.15-11.05c13.92-4.5 29.06 2.87 33.56 16.78s-2.88 29.07-16.81 33.57z', fill='currentColor')
+			a.btn.btn-bd-yellow.d-none.d-lg-inline-block.mb-3.mb-md-0.ml-md-3(href='https://github.com/twbs/bootstrap/archive/v4.0.0-beta.2.zip') Download
+		.container-fluid
+			.row.flex-xl-nowrap
+				.col-12.col-md-3.col-xl-2.bd-sidebar
+					form.bd-search.d-flex.align-items-center
+						span.algolia-autocomplete(style='position: relative; display: inline-block; direction: ltr;')
+							input#search-input.form-control.ds-input(type='search', placeholder='Search...', aria-label='Search for...', autocomplete='off', spellcheck='false', role='combobox', aria-autocomplete='list', aria-expanded='false', aria-labelledby='search-input', aria-owns='algolia-autocomplete-listbox-0', dir='auto', style='position: relative; vertical-align: top;')
+							pre(aria-hidden='true', style='position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;').
+							span#algolia-autocomplete-listbox-0.ds-dropdown-menu(role='listbox', style='position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;')
+								.ds-dataset-1
+						button.btn.btn-link.bd-search-docs-toggle.d-md-none.p-0.ml-3.collapsed(type='button', data-toggle='collapse', data-target='#bd-docs-nav', aria-controls='bd-docs-nav', aria-expanded='false', aria-label='Toggle docs navigation')
+							svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 30 30', width='30', height='30', focusable='false')
+								title Menu
+								path(stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-miterlimit='10', d='M4 7h22M4 15h22M4 23h22')
+					nav#bd-docs-nav.bd-links.collapse(style='')
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/getting-started/introduction/')
+								| Getting started
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/introduction/')
+										| Introduction
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/download/')
+										| Download
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/contents/')
+										| Contents
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/browsers-devices/')
+										| Browsers & devices
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/javascript/')
+										| JavaScript
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/theming/')
+										| Theming
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/build-tools/')
+										| Build tools
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/webpack/')
+										| Webpack
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/accessibility/')
+										| Accessibility
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/layout/overview/')
+								| Layout
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/layout/overview/')
+										| Overview
+								li
+									a(href='http://getbootstrap.com/docs/4.0/layout/grid/')
+										| Grid
+								li
+									a(href='http://getbootstrap.com/docs/4.0/layout/media-object/')
+										| Media object
+								li
+									a(href='http://getbootstrap.com/docs/4.0/layout/utilities-for-layout/')
+										| Utilities for layout
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/content/reboot/')
+								| Content
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/reboot/')
+										| Reboot
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/typography/')
+										| Typography
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/code/')
+										| Code
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/images/')
+										| Images
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/tables/')
+										| Tables
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/figures/')
+										| Figures
+						.bd-toc-item.active
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/components/alerts/')
+								| Components
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/alerts/')
+										| Alerts
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/badge/')
+										| Badge
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/breadcrumb/')
+										| Breadcrumb
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/buttons/')
+										| Buttons
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/button-group/')
+										| Button group
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/card/')
+										| Card
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/carousel/')
+										| Carousel
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/collapse/')
+										| Collapse
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/dropdowns/')
+										| Dropdowns
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/forms/')
+										| Forms
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/input-group/')
+										| Input group
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/jumbotron/')
+										| Jumbotron
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/list-group/')
+										| List group
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/modal/')
+										| Modal
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/navs/')
+										| Navs
+								li.active.bd-sidenav-active
+									a(href='http://getbootstrap.com/docs/4.0/components/navbar/')
+										| Navbar
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/pagination/')
+										| Pagination
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/popovers/')
+										| Popovers
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/progress/')
+										| Progress
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/scrollspy/')
+										| Scrollspy
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/tooltips/')
+										| Tooltips
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/utilities/borders/')
+								| Utilities
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/borders/')
+										| Borders
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/clearfix/')
+										| Clearfix
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/close-icon/')
+										| Close icon
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/colors/')
+										| Colors
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/display/')
+										| Display
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/embed/')
+										| Embed
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/flex/')
+										| Flex
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/float/')
+										| Float
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/image-replacement/')
+										| Image replacement
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/position/')
+										| Position
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/screenreaders/')
+										| Screenreaders
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/sizing/')
+										| Sizing
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/spacing/')
+										| Spacing
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/text/')
+										| Text
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/vertical-align/')
+										| Vertical align
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/visibility/')
+										| Visibility
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/extend/icons/')
+								| Extend
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/extend/icons/')
+										| Icons
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/migration/')
+								| Migration
+							ul.nav.bd-sidenav
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/about/history/')
+								| About
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/history/')
+										| History
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/team/')
+										| Team
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/brand/')
+										| Brand
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/license/')
+										| License
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/translations/')
+										| Translations
+				.d-none.d-xl-block.col-xl-2.bd-toc
+					ul.section-nav
+						li.toc-entry.toc-h2
+							a(href='http://getbootstrap.com/docs/4.0/components/navbar/#how-it-works') How it works
+						li.toc-entry.toc-h2
+							a(href='http://getbootstrap.com/docs/4.0/components/navbar/#supported-content') Supported content
+							ul
+								li.toc-entry.toc-h3
+									a(href='http://getbootstrap.com/docs/4.0/components/navbar/#brand') Brand
+								li.toc-entry.toc-h3
+									a(href='http://getbootstrap.com/docs/4.0/components/navbar/#nav') Nav
+								li.toc-entry.toc-h3
+									a(href='http://getbootstrap.com/docs/4.0/components/navbar/#forms') Forms
+								li.toc-entry.toc-h3
+									a(href='http://getbootstrap.com/docs/4.0/components/navbar/#text') Text
+						li.toc-entry.toc-h2
+							a(href='http://getbootstrap.com/docs/4.0/components/navbar/#color-schemes') Color schemes
+						li.toc-entry.toc-h2
+							a(href='http://getbootstrap.com/docs/4.0/components/navbar/#containers') Containers
+						li.toc-entry.toc-h2
+							a(href='http://getbootstrap.com/docs/4.0/components/navbar/#placement') Placement
+						li.toc-entry.toc-h2
+							a(href='http://getbootstrap.com/docs/4.0/components/navbar/#responsive-behaviors') Responsive behaviors
+							ul
+								li.toc-entry.toc-h3
+									a(href='http://getbootstrap.com/docs/4.0/components/navbar/#toggler') Toggler
+								li.toc-entry.toc-h3
+									a(href='http://getbootstrap.com/docs/4.0/components/navbar/#external-content') External content
+									ul
+										li.toc-entry.toc-h4
+											a(href='http://getbootstrap.com/docs/4.0/components/navbar/#collapsed-content') Collapsed content
+				main.col-12.col-md-9.col-xl-8.py-md-3.pl-md-5.bd-content(role='main')
+					h1#content.bd-title Navbar
+					p.bd-lead
+						| Documentation and examples for Bootstrap's powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse plugin.
+					script#_carbonads_js(async='', src='./Navbar · Bootstrap_files/carbon.js.Download')
+					#carbonads
+						span
+							span.carbon-wrap
+								a.carbon-img(href='http://srv.carbonads.net/ads/click/x/GTND42QEFTSDV27WCES4YKQMCTAD5K3NCVYICZ3JCWYDE27YCYSD6KQKC6BIT53NCEADVK3EHJNCLSIZ?segment=placement:getbootstrapcom;', target='_blank', rel='noopener')
+									img(src='http://assets.servedby-buysellads.com/p/manage/asset/id/60158', alt='', border='0', height='100', width='130', style='max-width: 130px;')
+								a.carbon-text(href='http://srv.carbonads.net/ads/click/x/GTND42QEFTSDV27WCES4YKQMCTAD5K3NCVYICZ3JCWYDE27YCYSD6KQKC6BIT53NCEADVK3EHJNCLSIZ?segment=placement:getbootstrapcom;', target='_blank', rel='noopener') All the tools you need to really understand your website visitors, in one place.
+							a.carbon-poweredby(href='http://carbonads.net/?utm_source=getbootstrapcom&utm_medium=ad_via_link&utm_campaign=in_unit&utm_term=carbon', target='_blank') ads via Carbon
+					h2#how-it-works
+						div
+							| How it works
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#how-it-works', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p Here’s what you need to know before getting started with the navbar:
+					ul
+						li
+							| Navbars require a wrapping 
+							code.highlighter-rouge .navbar
+							|  with 
+							code.highlighter-rouge .navbar-expand{-sm|-md|-lg|-xl}
+							|  for responsive collapsing and 
+							a(href='http://getbootstrap.com/docs/4.0/components/navbar/#color-schemes') color scheme
+							|  classes.
+						li
+							| Navbars and their contents are fluid by default. Use 
+							a(href='http://getbootstrap.com/docs/4.0/components/navbar/#containers') optional containers
+							|  to limit their horizontal width.
+						li
+							| Use our 
+							a(href='http://getbootstrap.com/docs/4.0/utilities/spacing/') spacing
+							|  and 
+							a(href='http://getbootstrap.com/docs/4.0/utilities/flex/') flex
+							|  utility classes for controlling spacing and alignment within navbars.
+						li
+							| Navbars are responsive by default, but you can easily modify them to change that. Responsive behavior depends on our Collapse JavaScript plugin.
+						li
+							| Navbars are hidden by default when printing. Force them to be printed by adding 
+							code.highlighter-rouge .d-print
+							|  to the 
+							code.highlighter-rouge .navbar
+							| . See the 
+							a(href='http://getbootstrap.com/docs/4.0/utilities/display/') display
+							|  utility class.
+						li
+							| Ensure accessibility by using a 
+							code.highlighter-rouge <nav>
+							|  element or, if using a more generic element such as a 
+							code.highlighter-rouge <div>
+							| , add a 
+							code.highlighter-rouge role="navigation"
+							|  to every navbar to explicitly identify it as a landmark region for users of assistive technologies.
+					p Read on for an example and list of supported sub-components.
+					h2#supported-content
+						div
+							| Supported content
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#supported-content', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Navbars come with built-in support for a handful of sub-components. Choose from the following as needed:
+					ul
+						li
+							code.highlighter-rouge .navbar-brand
+							|  for your company, product, or project name.
+						li
+							code.highlighter-rouge .navbar-nav
+							|  for a full-height and lightweight navigation (including support for dropdowns).
+						li
+							code.highlighter-rouge .navbar-toggler
+							|  for use with our collapse plugin and other 
+							a(href='http://getbootstrap.com/docs/4.0/components/navbar/#responsive-behaviors') navigation toggling
+							|  behaviors.
+						li
+							code.highlighter-rouge .form-inline
+							|  for any form controls and actions.
+						li
+							code.highlighter-rouge .navbar-text
+							|  for adding vertically centered strings of text.
+						li
+							code.highlighter-rouge .collapse.navbar-collapse
+							|  for grouping and hiding navbar contents by a parent breakpoint.
+					p
+						| Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the 
+						code.highlighter-rouge lg
+						|  (large) breakpoint.
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarSupportedContent.collapse.navbar-collapse
+								ul.navbar-nav.mr-auto
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Link
+									li.nav-item.dropdown
+										a#navbarDropdown.nav-link.dropdown-toggle(href='http://getbootstrap.com/docs/4.0/components/navbar/#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+											| Dropdown
+										.dropdown-menu(aria-labelledby='navbarDropdown')
+											a.dropdown-item(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Action
+											a.dropdown-item(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Another action
+											.dropdown-divider
+											a.dropdown-item(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Something else here
+									li.nav-item
+										a.nav-link.disabled(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Disabled
+								form.form-inline.my-2.my-lg-0
+									input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+									button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p
+						| This example uses 
+						a(href='http://getbootstrap.com/docs/4.0/utilities/colors/') color
+						|  (
+						code.highlighter-rouge bg-light
+						| ) and 
+						a(href='http://getbootstrap.com/docs/4.0/utilities/spacing/') spacing
+						|  (
+						code.highlighter-rouge my-2
+						| , 
+						code.highlighter-rouge my-lg-0
+						| , 
+						code.highlighter-rouge mr-sm-0
+						| , 
+						code.highlighter-rouge my-sm-0
+						| ) utility classes.
+					h3#brand
+						div
+							| Brand
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#brand', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| The 
+						code.highlighter-rouge .navbar-brand
+						|  can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+					.bd-example
+						// As a link
+						nav.navbar.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+						// As a heading
+						nav.navbar.navbar-light.bg-light
+							span.navbar-brand.mb-0.h1 Navbar
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p
+						| Adding images to the 
+						code.highlighter-rouge .navbar-brand
+						|  will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.
+					.bd-example
+						// Just an image
+						nav.navbar.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+								img(src='images/bootstrap-solid.svg', width='30', height='30', alt='')
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					.bd-example
+						// Image and text
+						nav.navbar.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+								img.d-inline-block.align-top(src='./Navbar · Bootstrap_files/bootstrap-solid.svg', width='30', height='30', alt='')
+								|     Bootstrap
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					h3#nav
+						div
+							| Nav
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#nav', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Navbar navigation links build on our 
+						code.highlighter-rouge .nav
+						|  options with their own modifier class and require the use of 
+						a(href='http://getbootstrap.com/docs/4.0/components/navbar/#toggler') toggler classes
+						|  for proper responsive styling. 
+						strong
+							| Navigation in navbars will also grow to occupy as much horizontal space as possible
+						|  to keep your navbar contents securely aligned.
+					p
+						| Active states—with 
+						code.highlighter-rouge .active
+						| —to indicate the current page can be applied directly to 
+						code.highlighter-rouge .nav-link
+						| s or their immediate parent 
+						code.highlighter-rouge .nav-item
+						| s.
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarNav.collapse.navbar-collapse
+								ul.navbar-nav
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Features
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Pricing
+									li.nav-item
+										a.nav-link.disabled(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Disabled
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p
+						| And because we use classes for our navs, you can avoid the list-based approach entirely if you like.
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarNavAltMarkup.collapse.navbar-collapse
+								.navbar-nav
+									a.nav-item.nav-link.active(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+										| Home 
+										span.sr-only (current)
+									a.nav-item.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Features
+									a.nav-item.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Pricing
+									a.nav-item.nav-link.disabled(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Disabled
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p
+						| You may also utilize dropdowns in your navbar nav. Dropdown menus require a wrapping element for positioning, so be sure to use separate and nested elements for 
+						code.highlighter-rouge .nav-item
+						|  and 
+						code.highlighter-rouge .nav-link
+						|  as shown below.
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarNavDropdown.collapse.navbar-collapse
+								ul.navbar-nav
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Features
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Pricing
+									li.nav-item.dropdown
+										a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='http://getbootstrap.com/docs/4.0/components/navbar/#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+											| Dropdown link
+										.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+											a.dropdown-item(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Action
+											a.dropdown-item(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Another action
+											a.dropdown-item(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Something else here
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					h3#forms
+						div
+							| Forms
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#forms', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Place various form controls and components within a navbar with 
+						code.highlighter-rouge .form-inline
+						| .
+					.bd-example
+						nav.navbar.navbar-light.bg-light
+							form.form-inline
+								input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+								button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p Align the contents of your inline forms with utilities as needed.
+					.bd-example
+						nav.navbar.navbar-light.bg-light.justify-content-between
+							a.navbar-brand Navbar
+							form.form-inline
+								input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+								button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p Input groups work, too:
+					.bd-example
+						nav.navbar.navbar-light.bg-light
+							form.form-inline
+								.input-group
+									span#basic-addon1.input-group-addon @
+									input.form-control(type='text', placeholder='Username', aria-label='Username', aria-describedby='basic-addon1')
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p
+						| Various buttons are supported as part of these navbar forms, too. This is also a great reminder that vertical alignment utilities can be used to align different sized elements.
+					.bd-example
+						nav.navbar.navbar-light.bg-light
+							form.form-inline
+								button.btn.btn-outline-success(type='button') Main button
+								button.btn.btn-sm.align-middle.btn-outline-secondary(type='button') Smaller button
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					h3#text
+						div
+							| Text
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#text', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Navbars may contain bits of text with the help of 
+						code.highlighter-rouge .navbar-text
+						| . This class adjusts vertical alignment and horizontal spacing for strings of text.
+					.bd-example
+						nav.navbar.navbar-light.bg-light
+							span.navbar-text
+								| Navbar text with an inline element
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p Mix and match with other components and utilities as needed.
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar w/ text
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarText', aria-controls='navbarText', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarText.collapse.navbar-collapse
+								ul.navbar-nav.mr-auto
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Features
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Pricing
+								span.navbar-text
+									| Navbar text with an inline element
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					h2#color-schemes
+						div
+							| Color schemes
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#color-schemes', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Theming the navbar has never been easier thanks to the combination of theming classes and 
+						code.highlighter-rouge background-color
+						|  utilities. Choose from 
+						code.highlighter-rouge .navbar-light
+						|  for use with light background colors, or 
+						code.highlighter-rouge .navbar-dark
+						|  for dark background colors. Then, customize with 
+						code.highlighter-rouge .bg-*
+						|  utilities.
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor01', aria-controls='navbarColor01', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarColor01.collapse.navbar-collapse
+								ul.navbar-nav.mr-auto
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Features
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Pricing
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') About
+								form.form-inline
+									input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+									button.btn.btn-outline-info.my-2.my-sm-0(type='submit') Search
+						nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor02', aria-controls='navbarColor02', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarColor02.collapse.navbar-collapse
+								ul.navbar-nav.mr-auto
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Features
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Pricing
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') About
+								form.form-inline
+									input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+									button.btn.btn-outline-light.my-2.my-sm-0(type='submit') Search
+						nav.navbar.navbar-expand-lg.navbar-light(style='background-color: #e3f2fd;')
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor03', aria-controls='navbarColor03', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarColor03.collapse.navbar-collapse
+								ul.navbar-nav.mr-auto
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Features
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Pricing
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') About
+								form.form-inline
+									input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+									button.btn.btn-outline-primary.my-2.my-sm-0(type='submit') Search
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					figure.highlight
+						pre.
+					h2#containers
+						div
+							| Containers
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#containers', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Although it’s not required, you can wrap a navbar in a 
+						code.highlighter-rouge .container
+						|  to center it on a page or add one within to only center the contents of a 
+						a(href='http://getbootstrap.com/docs/4.0/components/navbar/#placement') fixed or static top navbar
+						| .
+					.bd-example
+						.container
+							nav.navbar.navbar-expand-lg.navbar-light.bg-light
+								a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p
+						| When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified 
+						code.highlighter-rouge .navbar-expand{-sm|-md|-lg|-xl}
+						|  class. This ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed.
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-light.bg-light
+							.container
+								a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					h2#placement
+						div
+							| Placement
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#placement', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Use our 
+						a(href='http://getbootstrap.com/docs/4.0/utilities/position/') position utilities
+						|  to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use 
+						code.highlighter-rouge position: fixed
+						| , meaning they’re pulled from the normal flow of the DOM and may require custom CSS (e.g., 
+						code.highlighter-rouge padding-top
+						|  on the 
+						code.highlighter-rouge <body>
+						| ) to prevent overlap with other elements.
+					p
+						| Also note that 
+						strong
+							code.highlighter-rouge .sticky-top
+							|  uses 
+							code.highlighter-rouge position: sticky
+							| , which 
+							a(href='https://caniuse.com/#feat=css-sticky') isn’t fully supported in every browser
+						| .
+					.bd-example
+						nav.navbar.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Default
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					.bd-example
+						nav.navbar.fixed-top.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Fixed top
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					.bd-example
+						nav.navbar.fixed-bottom.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Fixed bottom
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					.bd-example
+						nav.navbar.sticky-top.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Sticky top
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					h2#responsive-behaviors
+						div
+							| Responsive behaviors
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#responsive-behaviors', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Navbars can utilize 
+						code.highlighter-rouge .navbar-toggler
+						| , 
+						code.highlighter-rouge .navbar-collapse
+						| , and 
+						code.highlighter-rouge .navbar-expand{-sm|-md|-lg|-xl}
+						|  classes to change when their content collapses behind a button. In combination with other utilities, you can easily choose when to show or hide particular elements.
+					p
+						| For navbars that never collapse, add the 
+						code.highlighter-rouge .navbar-expand
+						|  class on the navbar. For navbars that always collapse, don’t add any 
+						code.highlighter-rouge .navbar-expand
+						|  class.
+					h3#toggler
+						div
+							| Toggler
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#toggler', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Navbar togglers are left-aligned by default, but should they follow a sibling element like a 
+						code.highlighter-rouge .navbar-brand
+						| , they’ll automatically be aligned to the far right. Reversing your markup will reverse the placement of the toggler. Below are examples of different toggle styles.
+					p
+						| With no 
+						code.highlighter-rouge .navbar-brand
+						|  shown in lowest breakpoint:
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-light.bg-light
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo01', aria-controls='navbarTogglerDemo01', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarTogglerDemo01.collapse.navbar-collapse
+								a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Hidden brand
+								ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Link
+									li.nav-item
+										a.nav-link.disabled(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Disabled
+								form.form-inline.my-2.my-lg-0
+									input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+									button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p With a brand name shown on the left and toggler on the right:
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-light.bg-light
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo02', aria-controls='navbarTogglerDemo02', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							#navbarTogglerDemo02.collapse.navbar-collapse
+								ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Link
+									li.nav-item
+										a.nav-link.disabled(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Disabled
+								form.form-inline.my-2.my-lg-0
+									input.form-control.mr-sm-2(type='search', placeholder='Search')
+									button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					p With a toggler on the left and brand name on the right:
+					.bd-example
+						nav.navbar.navbar-expand-lg.navbar-light.bg-light
+							button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo03', aria-controls='navbarTogglerDemo03', aria-expanded='false', aria-label='Toggle navigation')
+								span.navbar-toggler-icon
+							a.navbar-brand(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Navbar
+							#navbarTogglerDemo03.collapse.navbar-collapse
+								ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+									li.nav-item.active
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#')
+											| Home 
+											span.sr-only (current)
+									li.nav-item
+										a.nav-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Link
+									li.nav-item
+										a.nav-link.disabled(href='http://getbootstrap.com/docs/4.0/components/navbar/#') Disabled
+								form.form-inline.my-2.my-lg-0
+									input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+									button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+					h3#external-content
+						div
+							| External content
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#external-content', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p
+						| Sometimes you want to use the collapse plugin to trigger hidden content elsewhere on the page. Because our plugin works on the 
+						code.highlighter-rouge id
+						|  and 
+						code.highlighter-rouge data-target
+						|  matching, that’s easily done!
+					.bd-example
+						.pos-f-t
+							#navbarToggleExternalContent.collapse
+								.bg-dark.p-4
+									h4.text-white Collapsed content
+									span.text-muted Toggleable via the navbar brand.
+							nav.navbar.navbar-dark.bg-dark
+								button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarToggleExternalContent', aria-controls='navbarToggleExternalContent', aria-expanded='false', aria-label='Toggle navigation')
+									span.navbar-toggler-icon
+					.bd-clipboard
+						button.btn-clipboard(title='', data-original-title='Copy to clipboard') Copy
+					.highlight
+						pre.
+		script(src='./Navbar · Bootstrap_files/jquery-3.2.1.slim.min.js.Download', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+		script.
+			window.jQuery || document.write('<script src="/assets/js/vendor/jquery-slim.min.js"><\\/script>')
+		script(src='./Navbar · Bootstrap_files/popper.min.js.Download')
+		script(src='./Navbar · Bootstrap_files/bootstrap.min.js.Download')
+		script(src='./Navbar · Bootstrap_files/docs.min.js.Download')
+		script(src='./Navbar · Bootstrap_files/ie-emulation-modes-warning.js.Download')
+		script(src='./Navbar · Bootstrap_files/docsearch.min.js.Download')
+		script.
+			docsearch({
+			apiKey: '48cb48b22351bc71ea5f12f4d1ede198',
+			indexName: 'bootstrap-v4',
+			inputSelector: '#search-input',
+			handleSelected: function (input, event, suggestion) {
+			var url = suggestion.url;
+			url = suggestion.isLvl1 ? url.split('#')[0]: url;
+			// If it's a title we remove the anchor so it does not jump.
+			window.location.href = url;
+			},
+			transformData: function (hits) {
+			return hits.map(function (hit) {
+			hit.url = hit.url.replace('https://v4-alpha.getbootstrap.com', '/docs/4.0');
+			return hit;
+			});
+			},
+			debug: false // Set debug to true if you want to inspect the dropdown
+			});
+		script.
+			Holder.addTheme('gray', {
+			bg: '#777',
+			fg: 'rgba(255,255,255,.75)',
+			font: 'Helvetica',
+			fontweight: 'normal'
+			});

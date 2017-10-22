@@ -6,22 +6,21 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "*",
     "body-parser": "~1.17.1",
+    "connect-session-knex": "*",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-session": "*",
     "jade": "~1.11.0",
+    "knex": "*",
+    "mongoose": "*",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2",
-	"mongoose":"*",
-	"validator": "*",
-	"knex":"*",
-	"express-session": "*",
-	"passport":"*",
-	"passport-local":"*",
-	"bcrypt":"*",
-	"connect-session-knex" : "*"
-  },  
+    "sqlite3": "^3.1.13",
+    "validator": "*"
+  },
   "devDependencies": {
     "nodemon": "^1.12.0"
   }

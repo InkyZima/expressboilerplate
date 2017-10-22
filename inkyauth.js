@@ -9,7 +9,7 @@ generate password hash: bcrypt.hashSync(password, bcrypt.genSaltSync(), null);
 generate session token and cookie handle it
 */
 
-const schemas = require("./models/schemas");
+const schemas = require("./models/models");
 
 var knex = require('knex')({
   dialect: 'sqlite3',

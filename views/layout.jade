@@ -2,13 +2,17 @@ doctype html
 html
 	head
 		title= title
-		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel="stylesheet" href= "https://fonts.googleapis.com/css?family=Raleway:400,300,600")
+		link(rel='stylesheet' href='/stylesheets/normalize.css')
+		link(rel='stylesheet' href='/stylesheets/skeleton-inky.css')
+		//link(rel='stylesheet' href='/stylesheets/style.css')
 		script(src="https://code.jquery.com/jquery-3.2.1.min.js")
-		script(src="https://d1l4stvdmqmdzl.cloudfront.net/3.9.6/mongoose.js")
+		// script(src="https://d1l4stvdmqmdzl.cloudfront.net/3.9.6/mongoose.js")
 		script(src="https://unpkg.com/vue@2.4.3/dist/vue.js")
 		script(src="/javascripts/index.js")
-		block headincludes
+		// block headincludes
 	body
-		h1 Header from layout.jade
-		#main
-			block content
+		#wrapper(style="display:flex")
+			#sidemenu(style="width: 250px; height: 100vh ; border-right: 1px solid")
+			.container(style="")
+				block content

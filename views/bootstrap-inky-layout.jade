@@ -1,0 +1,178 @@
+doctype html
+// saved from url=(0051)http://getbootstrap.com/docs/4.0/components/navbar/
+html(lang='en')
+	head
+		meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		title Navbar · Bootstrap
+		// Bootstrap core CSS
+		style.anchorjs.
+		link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+		// Documentation extras
+		// link(href='stylesheets/docsearch.min.css', rel='stylesheet')
+		link(href='stylesheets/docs.min.css', rel='stylesheet')
+		// Favicons
+		link(rel='apple-touch-icon', href='http://getbootstrap.com/assets/img/favicons/apple-touch-icon.png', sizes='180x180')
+		link(rel='icon', href='http://getbootstrap.com/assets/img/favicons/favicon-32x32.png', sizes='32x32', type='image/png')
+		link(rel='icon', href='http://getbootstrap.com/assets/img/favicons/favicon-16x16.png', sizes='16x16', type='image/png')
+		link(rel='manifest', href='http://getbootstrap.com/assets/img/favicons/manifest.json')
+		link(rel='mask-icon', href='http://getbootstrap.com/assets/img/favicons/safari-pinned-tab.svg', color='#563d7c')
+		link(rel='icon', href='http://getbootstrap.com/favicon.ico')
+		// meta(name='msapplication-config', content='/assets/img/favicons/browserconfig.xml')
+		meta(name='theme-color', content='#563d7c')
+		// Meta
+		meta(name='description', content='The most popular HTML, CSS, and JS library in the world.')
+		meta(name='author', content='Inky Zima')
+		
+		// inky google analytics
+		// script(async='', src='javascripts/analytics.js.Download')
+		// script.
+			// (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			// (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			// m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			// })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			// ga('create', 'UA-146052-10', 'getbootstrap.com');
+			// ga('send', 'pageview');
+		// inky carbonads
+		// script#_carbonads_projs(type='text/javascript', src='http://srv.carbonads.net/ads/C6AILKT.json?segment=placement:getbootstrapcom&callback=_carbonads_go')
+	body
+		a#skippy.sr-only.sr-only-focusable(href='http://getbootstrap.com/docs/4.0/components/navbar/#content')
+			.container
+				span.skiplink-text Skip to main content
+		.container-fluid.h-100
+			.row.flex-xl-nowrap
+				.col-12.col-md-3.col-xl-2.bd-sidebar
+					form.bd-search.d-flex.align-items-center
+						span.algolia-autocomplete(style='position: relative; display: inline-block; direction: ltr;')
+							input#search-input.form-control.ds-input(type='search', placeholder='Search...', aria-label='Search for...', autocomplete='off', spellcheck='false', role='combobox', aria-autocomplete='list', aria-expanded='false', aria-labelledby='search-input', aria-owns='algolia-autocomplete-listbox-0', dir='auto', style='position: relative; vertical-align: top;')
+							pre(aria-hidden='true', style='position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;').
+							span#algolia-autocomplete-listbox-0.ds-dropdown-menu(role='listbox', style='position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;')
+								.ds-dataset-1
+						button.btn.btn-link.bd-search-docs-toggle.d-md-none.p-0.ml-3.collapsed(type='button', data-toggle='collapse', data-target='#bd-docs-nav', aria-controls='bd-docs-nav', aria-expanded='false', aria-label='Toggle docs navigation')
+							svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 30 30', width='30', height='30', focusable='false')
+								title Menu
+								path(stroke='currentColor', stroke-width='2', stroke-linecap='round', stroke-miterlimit='10', d='M4 7h22M4 15h22M4 23h22')
+					nav#bd-docs-nav.bd-links.collapse(style='')
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/getting-started/introduction/')
+								| Getting started
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/introduction/') Introduction
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/download/') Download
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/contents/') Contents
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/browsers-devices/') Browsers & devices
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/javascript/') JavaScript
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/theming/') Theming
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/build-tools/') Build tools
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/webpack/') Webpack
+								li
+									a(href='http://getbootstrap.com/docs/4.0/getting-started/accessibility/') Accessibility
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/layout/overview/')
+								| Layout
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/layout/overview/') Overview
+								li
+									a(href='http://getbootstrap.com/docs/4.0/layout/grid/') Grid
+								li
+									a(href='http://getbootstrap.com/docs/4.0/layout/media-object/') Media object
+								li
+									a(href='http://getbootstrap.com/docs/4.0/layout/utilities-for-layout/') Utilities for layout
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/content/reboot/')
+								| Content
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/reboot/') Reboot
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/typography/') Typography
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/code/') Code
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/images/') Images
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/tables/') Tables
+								li
+									a(href='http://getbootstrap.com/docs/4.0/content/figures/') Figures
+						.bd-toc-item.active
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/components/alerts/')
+								| Components
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/input-group/') Input group
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/jumbotron/') Jumbotron
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/list-group/') List group
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/modal/') Modal
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/navs/') Navs
+								li.active.bd-sidenav-active
+									a(href='http://getbootstrap.com/docs/4.0/components/navbar/') Navbar
+								li
+									a(href='http://getbootstrap.com/docs/4.0/components/pagination/') Pagination
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/utilities/borders/')
+								| Utilities
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/borders/') Borders
+								li
+									a(href='http://getbootstrap.com/docs/4.0/utilities/clearfix/') Clearfix
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/extend/icons/')
+								| Extend
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/extend/icons/') Icons
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/migration/') Migration
+							ul.nav.bd-sidenav
+						.bd-toc-item
+							a.bd-toc-link(href='http://getbootstrap.com/docs/4.0/about/history/') About
+							ul.nav.bd-sidenav
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/history/') History
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/team/') Team
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/brand/') Brand
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/license/') License
+								li
+									a(href='http://getbootstrap.com/docs/4.0/about/translations/') Translations
+				// inky right side menu. do i need the gray border left?										
+				.d-none.d-xl-block.col-xl-2.bd-toc
+				main.col-12.col-md-9.col-xl-8.py-md-3.pl-md-5.bd-content(role='main')
+					h1#content.bd-title Navbar
+					p.bd-lead
+						| Documentation and examples for Bootstrap's powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse plugin.
+					// script#_carbonads_js(async='', src='javascripts/carbon.js.Download')
+					// #carbonads
+						// span
+							// span.carbon-wrap
+								// a.carbon-img(href='http://srv.carbonads.net/ads/click/x/GTND42QEFTSDV27WCES4YKQMCTAD5K3NCVYICZ3JCWYDE27YCYSD6KQKC6BIT53NCEADVK3EHJNCLSIZ?segment=placement:getbootstrapcom;', target='_blank', rel='noopener')
+									// img(src='http://assets.servedby-buysellads.com/p/manage/asset/id/60158', alt='', border='0', height='100', width='130', style='max-width: 130px;')
+								// a.carbon-text(href='http://srv.carbonads.net/ads/click/x/GTND42QEFTSDV27WCES4YKQMCTAD5K3NCVYICZ3JCWYDE27YCYSD6KQKC6BIT53NCEADVK3EHJNCLSIZ?segment=placement:getbootstrapcom;', target='_blank', rel='noopener') All the tools you need to really understand your website visitors, in one place.
+							// a.carbon-poweredby(href='http://carbonads.net/?utm_source=getbootstrapcom&utm_medium=ad_via_link&utm_campaign=in_unit&utm_term=carbon', target='_blank') ads via Carbon
+					h2#how-it-works
+						div
+							| How it works
+							a.anchorjs-link(href='http://getbootstrap.com/docs/4.0/components/navbar/#how-it-works', aria-label='Anchor', data-anchorjs-icon='#', style='padding-left: 0.375em;')
+					p Here’s what you need to know before getting started with the navbar:
+					
+		script(src='javascripts/jquery-3.2.1.slim.min.js.Download', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+		script.
+			window.jQuery || document.write('<script src="/assets/js/vendor/jquery-slim.min.js"><\\/script>')
+		script(src='javascripts/popper.min.js.Download')
+		script(src='javascripts/bootstrap.min.js.Download')

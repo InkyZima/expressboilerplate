@@ -1,6 +1,29 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p= dbtest
+	#mega.row.yellow(style="border-bottom: 1px solid")
+		#megaheader.blue
+			ul(style="display:flex; justify-content:space-evenly")
+				div First
+				div second
+				div third
+				div fourth
+		#megabody.red(style="display:none")
+			ul
+				li first
+				li second
+				li third
+	h1 Some content header
+	p Welcome to #{title}
+	p some text
+	p= dbtest
+	
+	script.
+		var dblclicked = false;
+		$("#mega").hover((e) => {
+			if (!dblclicked) $("#megabody").toggle();
+		});
+		$("#mega").dblclick((e) => {
+		dblclicked = !dblclicked;
+			if (dblclicked) $("#megabody").css("display","block");
+		});

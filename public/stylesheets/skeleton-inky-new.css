@@ -23,8 +23,6 @@
 - Utilities
 - Clearing
 - Media Queries
-- custom
-- debugging
 */
 
 
@@ -33,7 +31,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 980px;
+  /* max-width: 960px; */
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
@@ -45,15 +43,15 @@
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
-  .container, hr {
+  .container {
     width: 85%;
     padding: 0; }
 }
 
 /* For devices larger than 550px */
 @media (min-width: 550px) {
-  .container, hr {
-    width: 80%; }
+  .container {
+    width: 100%; }
   .column,
   .columns {
     margin-left: 4%; }
@@ -80,7 +78,7 @@
 
   .one-half.column                { width: 48%; }
 
-  /*  sets */
+  /* Offsets */
   .offset-by-one.column,
   .offset-by-one.columns          { margin-left: 8.66666666667%; }
   .offset-by-two.column,
@@ -155,6 +153,19 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 
 p {
   margin-top: 0; }
+  
+ /*TODO review class names*/
+  .text-danger {
+  color: #F44336; }
+
+.text-warning {
+  color: #FFA726; }
+
+.text-success {
+  color: #8BC34A; }
+
+.text-muted {
+  color: #bbb; }
 
 
 /* Links
@@ -202,6 +213,7 @@ input[type="button"]:focus {
   color: #333;
   border-color: #888;
   outline: 0; }
+  /* colors */
 .button.button-primary,
 button.button-primary,
 input[type="submit"].button-primary,
@@ -223,6 +235,72 @@ input[type="button"].button-primary:focus {
   color: #FFF;
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
+  
+  .button.button-danger,
+button.button-danger,
+input[type="submit"].button-danger,
+input[type="reset"].button-danger,
+input[type="button"].button-danger {
+  color: #FFF;
+  background-color: #F44336;
+  border-color: #F44336; }
+.button.button-danger:hover,
+button.button-danger:hover,
+input[type="submit"].button-danger:hover,
+input[type="reset"].button-danger:hover,
+input[type="button"].button-danger:hover,
+.button.button-danger:focus,
+button.button-danger:focus,
+input[type="submit"].button-danger:focus,
+input[type="reset"].button-danger:focus,
+input[type="button"].button-danger:focus {
+  color: #FFF;
+  background-color: #ea1c0d;
+  border-color: #ea1c0d; }
+  
+  .button.button-warning,
+button.button-warning,
+input[type="submit"].button-warning,
+input[type="reset"].button-warning,
+input[type="button"].button-warning {
+  color: #FFF;
+  background-color: #FFA726;
+  border-color: #FFA726; }
+.button.button-warning:hover,
+button.button-warning:hover,
+input[type="submit"].button-warning:hover,
+input[type="reset"].button-warning:hover,
+input[type="button"].button-warning:hover,
+.button.button-warning:focus,
+button.button-warning:focus,
+input[type="submit"].button-warning:focus,
+input[type="reset"].button-warning:focus,
+input[type="button"].button-warning:focus {
+  color: #FFF;
+  background-color: #f29000;
+  border-color: #f29000; }
+  
+  .button.button-success,
+button.button-success,
+input[type="submit"].button-success,
+input[type="reset"].button-success,
+input[type="button"].button-success {
+  color: #FFF;
+  background-color: #8BC34A;
+  border-color: #8BC34A; }
+.button.button-success:hover,
+button.button-success:hover,
+input[type="submit"].button-success:hover,
+input[type="reset"].button-success:hover,
+input[type="button"].button-success:hover,
+.button.button-success:focus,
+button.button-success:focus,
+input[type="submit"].button-success:focus,
+input[type="reset"].button-success:focus,
+input[type="button"].button-success:focus {
+  color: #FFF;
+  background-color: #71a436;
+  border-color: #71a436; }
 
 
 /* Forms
@@ -324,13 +402,6 @@ pre > code {
 
 /* Tables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-/*inky: because tables suck*/
-table {
-	display:block;
-	x-overflow:auto;
-}
-
 th,
 td {
   padding: 12px 15px;
@@ -365,6 +436,73 @@ ol,
 form {
   margin-bottom: 2.5rem; }
 
+  
+  /* Tooltip
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 5px; }
+  .tooltip .content {
+    position: absolute;
+    /* TODO: 90%? font-size: 1rem; */
+    z-index: 1;
+    visibility: hidden;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(-100%);
+    /* TODO background-color: #ededed; */
+	background-color: #000;
+    padding: 5px 20px;
+    border-radius: 3px;
+    transition: opacity 0.3s;
+    opacity: 0;
+    min-width: 160px; }
+    .tooltip .content, .tooltip .content * {
+      color: #fff; }
+    .tooltip .content:after {
+      content: " ";
+      position: absolute;
+      top: 100%;
+      /* At the bottom of the tooltip */
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #000 transparent transparent transparent; }
+  .tooltip:hover .content {
+    visibility: visible;
+    opacity: 0.9; }
+  .tooltip.success .content {
+    background-color: #8BC34A; }
+    .tooltip.success .content, .tooltip.success .content * {
+      color: #fff; }
+    .tooltip.success .content:after {
+      border-color: #8BC34A transparent transparent transparent; }
+  .tooltip.primary .content {
+    /* TODO background-color: #1EAEDB; } */
+	background-color: #33C3F0; } 
+    .tooltip.primary .content, .tooltip.primary .content * {
+      color: #fff; }
+    .tooltip.primary .content:after {
+      /* TODO border-color: #1EAEDB transparent transparent transparent; } */
+	  border-color: #33C3F0 transparent transparent transparent; }
+  .tooltip.danger .content {
+    background-color: #F44336; }
+    .tooltip.danger .content, .tooltip.danger .content * {
+      color: #fff; }
+    .tooltip.danger .content:after {
+      border-color: #F44336 transparent transparent transparent; }
+  .tooltip.warning .content {
+    background-color: #FFA726; }
+    .tooltip.warning .content, .tooltip.warning .content * {
+      color: #fff; }
+    .tooltip.warning .content:after {
+      border-color: #FFA726 transparent transparent transparent; }
+
+  
 
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -400,6 +538,20 @@ hr {
   display: table;
   clear: both; }
 
+  /* testing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.red {
+	background-color: red;
+}
+.green {
+	background-color: green;
+}
+.blue {
+	background-color: blue;
+}
+.yellow {
+	background-color: yellow;
+}
 
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -425,147 +577,3 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
-
-
-/* custom
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.hidden {
-	display:none;
-}
-
-hr {
-	max-width: 1000px;
-}
-
-input:invalid {
-	border-color: red;
-}
-
-a.aspecial {
-	text-decoration:none;
-	font-weight:bold;
-	color:black;
-}
-
-.footer p {
-	line-height:1.2;
-}
-
-.footer li { 
-	float:left;
-}
-
-.footer ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-/* header, nav
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.header {
-	border-bottom:1px solid;
-}
-.nav {
-	border-bottom:1px solid;
-	position:sticky;
-    top:0px;
-	z-index:100;
-	background-color:white;
-}
-
-.nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-top {
-	text-align:center;
-	padding: 0.5rem 0rem;
-}
-
-.nav-top > .row {
-	/* background-color:blue; */
-	display:none;
-}
-
-.nav-top:hover > .row {
-	display:block;
-}
-
-.nav a {
-	display:block;
-	text-decoration:none;
-	font-weight:bold;
-	color:black;
-}
-
-/* modal
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.modal {
-    display: none;
-    position: fixed; /* Stay in place */
-    z-index: 200; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal > .container {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-	max-height:80%;
-	overflow:auto;
-}
-
-/* hamburger menu */
-.bar1, .bar2, .bar3 {
-    width: 3rem;
-    height: 0.4rem;
-    background-color: #333;
-    margin: 0.3rem 0.5rem;
-}
-
-/* Rotate first bar */
-.change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
-    transform: rotate(-45deg) translate(-9px, 6px) ;
-}
-
-/* Fade out the second bar */
-.change .bar2 {
-    opacity: 0;
-}
-
-/* Rotate last bar */
-.change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
-    transform: rotate(45deg) translate(-8px, -8px) ;
-}
-
-
-/* debugging
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.red {
-	background-color:red;
-}
-.blue {
-	background-color:blue;
-}
-.green {
-	background-color:green;
-}.yellow {
-	background-color:yellow;
-}
