@@ -4,15 +4,21 @@ forgot passwort -> mail to user
 reset password page
 */
 
+var inkyauth = require("../inkyauth");
+const c = console.log;
 exports.getlogin = () => {};
 
-exports.postlogin =  (req, res, next) => {
-	if (req.session && req.session.user) {next("already logged in");}
+exports.postlogin =  (req, res, next) => { c("checking login")
+	if (req.session && req.session.user) {
+		// next("already logged in");
+		res.redirect(req.header('Referer'));
+		}
 	else {
 		inkyauth.authuser(req.body.username, req.body.password).then( (authresult) => {
 			req.session.user = req.body.username;	
 			c(req.session);
-			res.send({user: req.session.user});	 
+			res.redirect(req.header('Referer'))
+			// res.send("newskeleton/main");	 
 		}, (err) => {next(err)}); 
 	}
 }; // route
@@ -30,7 +36,8 @@ exports.checklogin =(req,res,next) => {
 
 exports.getlogout = (req,res,next) => {
 	req.session.destroy();
-	res.send("logout success!");
+	c("logout: " + req.baseUrl)
+	res.redirect(req.header('Referer'));
 };
 
 exports.getsignup = () => {};

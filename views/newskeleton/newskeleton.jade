@@ -13,7 +13,8 @@ html(lang='en')
 		link(rel='manifest', href='http://getbootstrap.com/assets/img/favicons/manifest.json')
 		link(rel='mask-icon', href='http://getbootstrap.com/assets/img/favicons/safari-pinned-tab.svg', color='#563d7c')
 		link(rel='icon', href='http://getbootstrap.com/favicon.ico')
-
+		script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+		
 		// Meta
 		meta(name='description', content='The most popular HTML, CSS, and JS library in the world.')
 		meta(name='author', content='Inky Zima')
@@ -30,14 +31,11 @@ html(lang='en')
 		// inky carbonads
 		// script#_carbonads_projs(type='text/javascript', src='http://srv.carbonads.net/ads/C6AILKT.json?segment=placement:getbootstrapcom&callback=_carbonads_go')
 	body
-		.wrapper.container
-			#sidenav.red.two.columns
-				p bump
-			#main.yellow.eight.columns
-				p some content in the main
-			#righthand.blue.two.columns
-				p bump
-
-		script(src='javascripts/jquery-3.2.1.slim.min.js.Download', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
-		script.
-			window.jQuery || document.write('<script src="/assets/js/vendor/jquery-slim.min.js"><\\/script>')
+		.wrapper(style="display:flex")
+			#sidenav.red(style="width:250px")
+				.container
+					include sidenav
+			#main.yellow(style="flex-grow:2;")
+				.container
+					block content
+			#righthand.blue(style="flex-grow:1; max-width:250px")

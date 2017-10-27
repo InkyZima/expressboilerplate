@@ -1,0 +1,16 @@
+
+#login
+	if !user
+		form#loginform(method="POST" action="/login")
+			label(for="username") Username:
+				input#userinput(type="text" name="username" placeholder="Your Username" autofocus required)
+			label(for="user") Password:
+				input#passwordinput(type="password" name="password" placeholder="Password" required)
+			button.button-primary(type="submit") Login
+	else
+		p Logged in as: #{user}
+		button.button-primary#logout(onclick="location.href='/logout'") Logout
+hr
+ul
+	li First Element
+	li Second Element

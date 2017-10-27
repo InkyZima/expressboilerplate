@@ -9,6 +9,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require("express-session");
 var bodyParser = require('body-parser');
+const errorHandler = require('errorhandler');
 // TODO necessary in this file? table and schema (for queryies and validations) definitions
 var models = require("./models/models");
 var inkyauth = require("./inkyauth");
@@ -27,6 +28,14 @@ var knex = require('knex')(sqliteconfig);
 const c = console.log;
 const ct = console.trace;
 const throwerr = (err) => {throw err;};
+
+/** inky init watcher (for development) **/
+// const watcher = require("./watcher/watcher");
+// var filenamearray = ["dealerrights" , "leadmanagement"];
+// var sqldb = "main.db";
+// var sqldbfolder = __dirname;
+// watcher.init(path.join(__dirname, "magic"), filenamearray , sqldb, sqldbfolder);
+
 
 const homeC = require("./controllers/home");
 const userC = require("./controllers/user");
@@ -54,6 +63,10 @@ const sessionopts = {
 	cookie : {httpOnly : false} // TODO why is this needed for normal http get requests?
 };
 app.use(session(sessionopts));
+app.use((req, res, next) => { c(req.user)
+  res.locals.user = req.session.user;
+  next();
+});
 
 /** routes go here **/
 // user
@@ -62,7 +75,7 @@ app.get("/checklogin", userC.getcheckloginclient);
 app.get("/logout", userC.getlogout);
 app.post('/createuser', userC.postsignup);
 app.get("/bootstrap", (req,res,next ) =>res.render("bootstrap-inky-layout"));
-app.get("/newskeleton", (req,res,next ) =>res.render("newskeleton"));
+app.get("/newskeleton", (req,res,next ) =>res.render("newskeleton/main"));
 // main
 app.get('/', homeC.index);
 
@@ -72,7 +85,7 @@ app.post("/restaurants/create", restaurantC.postrestaurant);
 app.post("/formdata" , spaC.postformdata);
 
 app.get("/secretpage", userC.checklogin , (req,res,next) => {
-	res.send({user : req.session.user , data :"this data comes from the ajax callback to /secretpage"});
+	res.send({data :"this data comes from the ajax callback to /secretpage"});
 });
 
 /** error handling **/
@@ -83,6 +96,8 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+app.use(errorHandler());
+/*
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -93,5 +108,6 @@ app.use(function(err, req, res, next) {
   // res.render('error');
   res.status(500).send(err);
 });
+*/
 
 module.exports = app;
